@@ -1,0 +1,16 @@
+html
+  body
+    .container
+      div(ng-include='components/navbar/navbar.html')
+    .row
+      label project
+        input(type='text', ng-model='newTime.project')
+      label amount
+        input(type='number', ng-model='newTime.amount')
+      
+      input(type='submit', ng-click='saveTime()')
+    .row
+      ul
+        li(ng-repeat='time in times')
+          {{time}}
+          a(ng-click='removeTime(time)') [x]

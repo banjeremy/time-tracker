@@ -1,0 +1,16 @@
+nav.top-bar(ng-controller='NavbarCtrl')
+  ul.title-area
+    li.name
+      h1
+        a(href='https://github.com/banjeremy/time-tracker') Time Tracker
+  section.top-bar-section
+    ul.right
+      li.active
+        a(ng-href='#') Home
+      li
+        a(ng-href='#') About
+      li
+        a(ng-href='#') Contact
+    ul.left
+      li
+        a(ng-href='#') {{ date | date:'EEEE, MMMM dd, yyyy' }}

@@ -1,16 +1,20 @@
-html
-  body
-    .container
-      div(ng-include='components/navbar/navbar.html')
-    .row
-      label project
-        input(type='text', ng-model='newTime.project')
-      label amount
-        input(type='number', ng-model='newTime.amount')
-      
-      input(type='submit', ng-click='saveTime()')
-    .row
-      ul
-        li(ng-repeat='time in times')
-          {{time}}
-          a(ng-click='removeTime(time)') [x]
+.container
+  div(ng-include='components/navbar/navbar.html')
+.row
+  form.new-time
+    .columns.large-4
+      label
+        input(type='text', placeholder='project name', ng-model='newTime.project')
+    .columns.large-4
+      .row.collapse
+        label.columns.small-9
+          input(type='number', placeholder='hours', ng-model='newTime.amount')
+        .columns.small-3
+          span.postfix hours
+    .columns.large-12
+      button.button.small(ng-click='saveTime()') Save
+.row
+  ul
+    li(ng-repeat='time in times')
+      {{time.project}} {{time.amount}} 
+      a(ng-click='removeTime(time)') [x]
